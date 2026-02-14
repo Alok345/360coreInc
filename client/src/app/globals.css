@@ -1,0 +1,137 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 221.2 83.2% 53.3%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 221.2 83.2% 53.3%;
+    --radius: 0.75rem;
+  }
+
+  body {
+    @apply bg-[#FDFCFB] text-slate-900 antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+    background-image:
+      radial-gradient(circle at 0% 0%, hsla(210, 100%, 98%, 1) 0%, transparent 25%),
+      radial-gradient(circle at 100% 100%, hsla(210, 100%, 98%, 1) 0%, transparent 25%);
+  }
+}
+
+/* Premium Shadows as @utility for Tailwind v4 Compatibility */
+@utility shadow-premium {
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.04), 0 4px 10px -5px rgba(0, 0, 0, 0.02);
+}
+
+@utility shadow-premium-lg {
+  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.05), 0 10px 20px -10px rgba(0, 0, 0, 0.03);
+}
+
+@utility glass {
+  background-color: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(226, 232, 240, 0.8);
+}
+
+@utility animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+@utility animate-slide-up {
+  animation: slideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@utility animate-fade-in {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+
+  50% {
+    transform: translateY(-8px) rotate(1deg);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/* Base Shadcn-like Components */
+.s-card {
+  @apply bg-white border border-slate-200/60 rounded-[1.5rem] shadow-premium transition-all duration-300;
+}
+
+.s-card:hover {
+  @apply border-slate-300/80 shadow-premium-lg;
+}
+
+.s-button-primary {
+  @apply bg-slate-900 text-white rounded-xl px-6 py-3 font-bold hover:bg-black active:scale-[0.97] transition-all inline-flex items-center justify-center gap-2 shadow-sm;
+}
+
+.s-input {
+  @apply w-full bg-slate-50/50 border border-slate-200/80 rounded-xl px-4 py-3.5 text-slate-900 font-semibold focus:bg-white focus:ring-4 focus:ring-blue-500/5 focus:border-blue-500 outline-none transition-all placeholder:text-slate-300;
+}
+
+.s-label {
+  @apply flex items-center gap-2 text-[10px] font-black text-slate-400 uppercase tracking-[0.15em] mb-2.5 ml-1.5;
+}
+
+.s-label-icon {
+  @apply w-3.5 h-3.5 text-slate-400 transition-colors;
+}
+
+.s-input-group:focus-within .s-label-icon {
+  @apply text-blue-500;
+}
+
+.s-input-group:focus-within .s-label {
+  @apply text-slate-600;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-slate-200 rounded-full hover:bg-slate-300 transition-colors;
+}
