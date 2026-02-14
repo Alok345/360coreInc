@@ -157,4 +157,27 @@ router.get('/', require('../middleware/auth'), async (req, res) => {
     }
 });
 
+// @route    GET api/auth/referrals
+// @desc     Get users referred by current user
+// @access   Private
+router.get('/referrals', require('../middleware/auth'), async (req, res) => {
+    try {
+        const currentUser = await User.findByPk(req.user.id);
+        if (!currentUser) {
+            return res.status(404).json({ msg: 'User not found' });
+        }
+
+        const referrals = await User.findAll({
+            where: { referredBy: currentUser.referralCode },
+            attributes: ['id', 'name', 'email', 'totalInvested', 'createdAt'],
+            order: [['createdAt', 'DESC']]
+        });
+
+        res.json(referrals);
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).send('Server Error');
+    }
+});
+
 module.exports = router;
