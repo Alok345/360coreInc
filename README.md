@@ -2,7 +2,7 @@
 
 A high-precision Investment and Referral Reward platform built for the **360 Core Inc** technical assignment. This system features an automated daily return protocol, a tiered referral reward structure, and a robust ledger-based accounting system.
 
-## 🚀 Key Features
+##  Key Features
 - **Mandatory Referral System**: Direct signups are restricted. Users must join via a verified referral code.
 - **Investment Protocol**: Minimum $100 entry with 0.6% automated daily returns.
 - **3x Earning Cap**: Intelligent cap logic that halts all earnings (returns + bonuses) once 300% of principal is reached.
@@ -12,7 +12,7 @@ A high-precision Investment and Referral Reward platform built for the **360 Cor
 
 ---
 
-## 🛠️ Tech Stack
+##  Tech Stack
 - **Frontend**: Next.js 15 (App Router), Tailwind CSS, Lucide Icons.
 - **Backend**: Node.js, Express, Sequelize ORM.
 - **Database**: MySQL.
@@ -20,7 +20,7 @@ A high-precision Investment and Referral Reward platform built for the **360 Cor
 
 ---
 
-## 📦 Setup Instructions
+##  Setup Instructions
 
 ### 1. Prerequisite
 - Node.js (v18+)
@@ -57,7 +57,7 @@ npm run dev
 
 ---
 
-## 📖 API Documentation
+##  API Documentation
 
 ### Authentication
 - `POST /api/auth/register`: 
@@ -83,7 +83,7 @@ npm run dev
 
 ---
 
-## 📊 Database Schema Explanation
+##  Database Schema Explanation
 - **User**: (id, name, email, password, referralCode, referredBy, totalInvested, totalEarned)
   - `referredBy`: Tracks the network hierarchy.
   - `totalInvested`: Aggregated capital injection.
@@ -94,7 +94,7 @@ npm run dev
 
 ---
 
-## 🚀 Scaling to 100,000 Users
+##  Scaling to 100,000 Users
 To transition from a proof-of-concept to a production-grade 100k+ user system:
 
 1. **Background Job Processing**: The `run-daily-returns` logic would be offloaded to **BullMQ** or **RabbitMQ**. Workers would process users in parallel batches (e.g., 500 users per worker) to avoid event-loop blocking and timeouts.
