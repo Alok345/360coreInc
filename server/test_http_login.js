@@ -1,7 +1,7 @@
 const http = require('http');
 
 const data = JSON.stringify({
-    email: 'admin@example.com',
+    email: 'admin@gmail.com',
     password: 'admin123'
 });
 

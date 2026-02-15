@@ -31,7 +31,7 @@ app.listen(PORT, async () => {
             const hashedPassword = await bcrypt.hash('admin123', salt);
             await User.create({
                 name: 'Admin User',
-                email: 'admin@example.com',
+                email: 'admin@gmail.com',
                 password: hashedPassword,
                 referralCode: 'ADMIN1',
                 totalInvested: 0

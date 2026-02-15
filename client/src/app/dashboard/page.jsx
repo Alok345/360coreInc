@@ -218,7 +218,7 @@ export default function Dashboard() {
                                         <History className="w-5 h-5 text-slate-400" />
                                         <h3 className="text-sm font-bold text-slate-900 uppercase tracking-wider">Transaction Registry</h3>
                                     </div>
-                                    {user.email === 'admin@example.com' && (
+                                    {user.email === 'admin@gmail.com' && (
                                         <button onClick={runDailyReturns} className="text-[10px] font-black text-orange-600 bg-orange-50 px-3 py-1 rounded-full hover:bg-orange-100 transition-all uppercase tracking-widest">Run Batch</button>
                                     )}
                                 </div>

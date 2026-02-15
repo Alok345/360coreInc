@@ -9,7 +9,7 @@ async function seed() {
         await sequelize.sync();
 
         // Check if seed user already exists
-        const existing = await User.findOne({ where: { email: 'admin@example.com' } });
+        const existing = await User.findOne({ where: { email: 'admin@gmail.com' } });
         if (existing) {
             console.log('Seed user already exists with referral code:', existing.referralCode);
             process.exit(0);
@@ -20,7 +20,7 @@ async function seed() {
 
         const admin = await User.create({
             name: 'System Origin',
-            email: 'admin@example.com',
+            email: 'admin@gmail.com',
             password: hashedPassword,
             referralCode: 'ORIGIN',
             totalInvested: 0,
@@ -29,7 +29,7 @@ async function seed() {
 
         console.log('Seed user created successfully!');
         console.log('--- CREDENTIALS ---');
-        console.log('Email: admin@example.com');
+        console.log('Email: admin@gmail.com');
         console.log('Password: admin123');
         console.log('Referral Code:', admin.referralCode);
         console.log('-------------------');
