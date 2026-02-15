@@ -7,7 +7,6 @@ import Footer from './Footer';
 export default function LayoutWrapper({ children }) {
     const pathname = usePathname();
 
-    // Pages that should NOT have the global navbar/footer because they have their own (like dashboard with sidebar)
     const isDashboard = pathname?.startsWith('/dashboard') || pathname?.startsWith('/deposit');
     const isAuthPage = pathname === '/login' || pathname === '/register';
     const hideGlobalNav = isDashboard || isAuthPage;

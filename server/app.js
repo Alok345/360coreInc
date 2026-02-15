@@ -7,7 +7,12 @@ const app = express();
 
 app.use(express.json());
 app.use(cors());
+app.use((req, res, next) => {
+    console.log(`${req.method} ${req.url}`);
+    next();
+});
 
+app.get('/test', (req, res) => res.json({ message: 'Server is alive' }));
 app.use('/api/auth', require('./src/routes/auth'));
 app.use('/api/transactions', require('./src/routes/transactions'));
 app.use('/api/admin', require('./src/routes/admin'));

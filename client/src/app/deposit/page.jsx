@@ -6,12 +6,11 @@ import { useAuth } from '@/context/AuthContext';
 import { useRouter } from 'next/navigation';
 import { toast } from 'react-hot-toast';
 import {
-    Landmark,
-    ArrowLeft,
+
     ArrowUpCircle,
-    ShieldCheck,
+
     DollarSign,
-    CreditCard,
+
     RefreshCw,
     Lock
 } from 'lucide-react';
@@ -94,32 +93,17 @@ export default function Deposit() {
 
                 <div className="p-6 sm:p-10 animate-fade-in flex flex-col items-center">
                     <div className="max-w-2xl w-full">
-                        {/* Header Section */}
-                        <div className="flex items-center justify-between mb-8 px-2">
-                            <button
-                                onClick={() => router.back()}
-                                className="flex items-center gap-2 text-slate-500 hover:text-slate-900 transition-colors font-black uppercase tracking-widest text-[10px]"
-                            >
-                                <ArrowLeft className="h-4 w-4" />
-                                Portfolio Overview
-                            </button>
-                            <div className="flex items-center gap-2">
-                                <div className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse"></div>
-                                <span className="text-[10px] font-black text-slate-500 uppercase tracking-widest">Protocol Active</span>
-                            </div>
-                        </div>
+
 
                         {/* Main Card */}
                         <div className="s-card bg-white p-8 sm:p-12 border-slate-200 shadow-xl">
                             <div className="text-center mb-12">
-                                <div className="mb-6 mx-auto w-16 h-16 bg-slate-900 rounded-2xl flex items-center justify-center text-white shadow-lg">
-                                    <Landmark className="h-8 w-8" />
-                                </div>
+
                                 <h1 className="text-3xl font-black text-slate-900 tracking-tight">Provision Capital</h1>
                                 <p className="text-slate-500 font-medium mt-2">Increase your investment volume in the registry.</p>
                             </div>
 
-                            {/* Quick Info Grid */}
+                            {/*  Info Grid */}
                             <div className="grid grid-cols-2 gap-4 mb-10">
                                 <div className="bg-slate-50 border border-slate-200 p-5 rounded-2xl">
                                     <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest block mb-1">Fixed Rate</span>
@@ -177,16 +161,7 @@ export default function Deposit() {
                                 </button>
                             </form>
 
-                            <div className="mt-14 pt-8 border-t border-slate-100 flex items-center justify-center gap-10 opacity-60">
-                                <div className="flex items-center gap-2.5">
-                                    <ShieldCheck className="h-4.5 w-4.5 text-slate-900" />
-                                    <span className="text-[10px] font-black uppercase tracking-widest text-slate-900">Verified Ledger</span>
-                                </div>
-                                <div className="flex items-center gap-2.5">
-                                    <CreditCard className="h-4.5 w-4.5 text-slate-900" />
-                                    <span className="text-[10px] font-black uppercase tracking-widest text-slate-900">Direct Deposit</span>
-                                </div>
-                            </div>
+
                         </div>
                     </div>
                 </div>

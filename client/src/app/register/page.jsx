@@ -37,11 +37,8 @@ export default function Register() {
         <div className="min-h-screen pt-20 pb-20 px-4 flex items-center justify-center bg-[#FDFCFB]">
             <div className="w-full max-w-lg animate-fade-in">
                 <div className="text-center mb-10">
-                    <div className="mb-6 mx-auto w-12 h-12 bg-slate-900 rounded-2xl flex items-center justify-center text-white shadow-lg rotate-3 overflow-hidden">
-                        <UserPlus className="w-6 h-6" />
-                    </div>
+                    
                     <h1 className="text-3xl font-black text-slate-900 tracking-tight">Create Account</h1>
-                    <p className="text-slate-500 font-medium mt-2">Join the next generation of digital investing.</p>
                 </div>
 
                 <div className="s-card bg-white p-6 sm:p-10">
@@ -49,7 +46,7 @@ export default function Register() {
                         <div className="s-input-group">
                             <label className="s-label">
                                 <User className="s-label-icon" />
-                                Full Legal Name
+                                Full Name
                             </label>
                             <input
                                 name="name"
@@ -64,7 +61,7 @@ export default function Register() {
                         <div className="s-input-group">
                             <label className="s-label">
                                 <Mail className="s-label-icon" />
-                                Professional Email
+                                 Email
                             </label>
                             <input
                                 name="email"
@@ -80,7 +77,7 @@ export default function Register() {
                             <div className="s-input-group">
                                 <label className="s-label">
                                     <Lock className="s-label-icon" />
-                                    Secure Key
+                                    Password
                                 </label>
                                 <input
                                     name="password"
@@ -118,7 +115,7 @@ export default function Register() {
                                     <RefreshCw className="w-5 h-5 animate-spin" />
                                 ) : (
                                     <>
-                                        Activate My Portfolio
+                                        Register
                                         <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                                     </>
                                 )}
@@ -136,12 +133,7 @@ export default function Register() {
                     </div>
                 </div>
 
-                <div className="mt-8 flex items-center justify-center gap-6 opacity-30">
-                    <div className="flex items-center gap-2">
-                        <ShieldCheck className="w-4 h-4" />
-                        <span className="text-[10px] font-black uppercase tracking-widest">ISO 27001 SECURED</span>
-                    </div>
-                </div>
+                
             </div>
         </div>
     );

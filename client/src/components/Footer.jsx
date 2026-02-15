@@ -21,7 +21,7 @@ const Footer = () => {
 
     return (
         <footer className="bg-slate-50 border-t border-slate-200 mt-24">
-            {/* Scroll to Top Button */}
+           
             {showScrollTop && (
                 <button
                     onClick={scrollToTop}
@@ -34,7 +34,7 @@ const Footer = () => {
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
-                    {/* Brand Section */}
+            
                     <div className="lg:col-span-1">
                         <Link href="/" className="flex items-center gap-2 mb-6 group">
                             <div className="bg-slate-900 w-8 h-8 rounded-lg flex items-center justify-center text-white">
@@ -92,12 +92,9 @@ const Footer = () => {
                 {/* Bottom Bar */}
                 <div className="mt-12 pt-8 border-t border-slate-200 flex flex-col md:flex-row justify-between items-center gap-4">
                     <p className="text-xs text-slate-400 lowercase">
-                        &copy; 2026 360 CORE. BUILT FOR PRECISION.
+                        &copy; 2026 360 CORE.
                     </p>
-                    <div className="flex gap-6">
-                        <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">SSL Encrypted</span>
-                        <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Secure Payments</span>
-                    </div>
+                    
                 </div>
             </div>
         </footer>

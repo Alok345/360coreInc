@@ -10,12 +10,10 @@ import {
     TrendingUp,
     Wallet,
     Target,
-    ShieldCheck,
     History,
     ArrowUpRight,
     Activity,
     Clock,
-    CreditCard
 } from 'lucide-react';
 import { toast } from 'react-hot-toast';
 import { AppSidebar } from "@/components/app-sidebar"
@@ -283,25 +281,7 @@ export default function Dashboard() {
                                 </div>
                             </div>
 
-                            <div className="s-card p-6 bg-white space-y-6">
-                                <h4 className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Security Protocol</h4>
-                                <div className="space-y-4">
-                                    <div className="flex items-center gap-4 p-4 rounded-xl border border-slate-100 hover:bg-slate-50 transition-all cursor-pointer">
-                                        <ShieldCheck className="w-5 h-5 text-blue-600" />
-                                        <div className="flex flex-col">
-                                            <span className="text-xs font-black text-slate-900">Institutional Ledger</span>
-                                            <span className="text-[10px] font-bold text-slate-400">ISO 27001 Verified</span>
-                                        </div>
-                                    </div>
-                                    <div className="flex items-center gap-4 p-4 rounded-xl border border-slate-100 hover:bg-slate-50 transition-all cursor-pointer">
-                                        <CreditCard className="w-5 h-5 text-indigo-600" />
-                                        <div className="flex flex-col">
-                                            <span className="text-xs font-black text-slate-900">Direct Settlement</span>
-                                            <span className="text-[10px] font-bold text-slate-400">T+0 Liquidity</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                          
                         </div>
                     </div>
                 </div>

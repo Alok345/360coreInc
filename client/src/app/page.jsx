@@ -1,23 +1,18 @@
 import Link from 'next/link';
-import { ArrowRight, Zap, Shield, Users, BarChart3, ChevronRight, CheckCircle2, Globe, TrendingUp, Sparkles, Plus } from 'lucide-react';
+import {  Zap, Shield, Users,  ChevronRight, Plus } from 'lucide-react';
 
 export default function Home() {
     return (
         <div className="relative isolate bg-[#FAFAF9]">
-            {/* Hero Section */}
             <div className="relative pt-12 sm:pt-24 pb-32 overflow-hidden px-4">
-                {/* Background Blobs */}
+               
                 <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl -z-10 h-full">
                     <div className="absolute top-20 left-10 w-96 h-96 bg-blue-100/50 rounded-full blur-[100px] animate-pulse"></div>
                     <div className="absolute bottom-20 right-10 w-96 h-96 bg-indigo-100/50 rounded-full blur-[100px] animate-pulse" style={{ animationDelay: '2s' }}></div>
                 </div>
 
                 <div className="max-w-7xl mx-auto px-6 lg:px-8 text-center animate-fade-in">
-                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-100 mb-8 sm:mb-10">
-                        <span className="flex h-1.5 w-1.5 rounded-full bg-blue-600"></span>
-                        <span className="text-[10px] font-black text-blue-700 uppercase tracking-widest">Protocol Version 4.0 Active</span>
-                    </div>
-
+                   
                     <h1 className="text-4xl sm:text-6xl md:text-7xl font-black tracking-tight text-slate-900 mb-8 leading-[1.1]">
                         Institutional-Grade <br />
                         <span className="text-blue-600">Investment Portal.</span>
@@ -37,7 +32,7 @@ export default function Home() {
                         </Link>
                     </div>
 
-                    {/* Quick Stats Banner */}
+                   
                     <div className="mt-20 flex flex-wrap justify-center items-center gap-8 sm:gap-16 opacity-60">
                         <div className="flex flex-col items-center">
                             <span className="text-2xl font-black text-slate-900">0.6%</span>
@@ -57,7 +52,7 @@ export default function Home() {
                 </div>
             </div>
 
-            {/* Core Values Section */}
+            
             <div className="py-24 bg-white border-y border-slate-100">
                 <div className="max-w-7xl mx-auto px-6 lg:px-8">
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-12">
@@ -133,7 +128,6 @@ export default function Home() {
                                             <div className="w-2 h-2 rounded-full bg-slate-200"></div>
                                             <div className="w-2 h-2 rounded-full bg-slate-200"></div>
                                         </div>
-                                        <span className="text-[8px] font-black text-slate-400 uppercase tracking-widest">Portfolio.json</span>
                                     </div>
                                     <div className="grid grid-cols-2 gap-4">
                                         <div className="h-24 bg-white border border-slate-200 rounded-xl p-4 flex flex-col justify-between">
@@ -163,7 +157,7 @@ export default function Home() {
             <div className="py-24 sm:py-32 px-4">
                 <div className="max-w-4xl mx-auto s-card bg-slate-900 p-12 sm:p-24 text-center text-white border-none shadow-xl relative overflow-hidden">
                     <div className="absolute top-0 right-0 w-64 h-64 bg-blue-600/10 rounded-full blur-[100px]"></div>
-                    <Sparkles className="w-12 h-12 text-blue-400 mx-auto mb-8 animate-float" />
+                    {/* <Sparkles className="w-12 h-12 text-blue-400 mx-auto mb-8 animate-float" /> */}
                     <h2 className="text-3xl sm:text-5xl font-black mb-8 leading-tight">Begin Your Investment <br /> Journey Today.</h2>
                     <p className="text-lg text-slate-400 max-w-xl mx-auto mb-12 font-medium">
                         Setup takes less than 3 minutes. Secure your position in the next generational investment cycle.

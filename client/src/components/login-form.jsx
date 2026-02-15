@@ -52,9 +52,7 @@ export function LoginForm({
         <div className={cn("flex flex-col gap-6", className)} {...props}>
             <Card className="border-slate-200/60 shadow-premium">
                 <CardHeader className="text-center">
-                    <div className="mb-4 mx-auto w-12 h-12 bg-slate-100 border border-slate-200 rounded-2xl flex items-center justify-center text-slate-900 shadow-sm overflow-hidden">
-                        <Fingerprint className="w-6 h-6" />
-                    </div>
+                    
                     <CardTitle className="text-2xl font-black tracking-tight">Access Portal</CardTitle>
                     <CardDescription>
                         Enter your credentials to manage your capital.
@@ -64,7 +62,7 @@ export function LoginForm({
                     <form onSubmit={onSubmit}>
                         <FieldGroup className="gap-6">
                             <Field>
-                                <FieldLabel htmlFor="email">Professional Email</FieldLabel>
+                                <FieldLabel htmlFor="email">Email</FieldLabel>
                                 <Input
                                     id="email"
                                     name="email"
@@ -78,7 +76,7 @@ export function LoginForm({
                             </Field>
                             <Field>
                                 <div className="flex items-center">
-                                    <FieldLabel htmlFor="password">Security Passkey</FieldLabel>
+                                    <FieldLabel htmlFor="password">Password</FieldLabel>
                                     <a
                                         href="#"
                                         className="ml-auto inline-block text-xs font-bold text-slate-400 hover:text-slate-900 transition-colors uppercase tracking-widest"
@@ -98,7 +96,7 @@ export function LoginForm({
                             </Field>
                             <div className="pt-2">
                                 <Button type="submit" className="w-full h-12 bg-slate-900 hover:bg-black font-bold" disabled={loading}>
-                                    {loading ? <RefreshCw className="w-5 h-5 animate-spin" /> : "Verify Identity"}
+                                    {loading ? <RefreshCw className="w-5 h-5 animate-spin" /> : "Login"}
                                 </Button>
                             </div>
                             <FieldDescription className="text-center text-sm font-semibold text-slate-500">

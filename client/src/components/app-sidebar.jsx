@@ -46,21 +46,7 @@ const navItems = [
             },
         ],
     },
-    {
-        title: "Registry",
-        items: [
-            {
-                title: "Ledger History",
-                url: "/dashboard#ledger",
-                icon: History,
-            },
-            {
-                title: "Referral Network",
-                url: "/dashboard#referral",
-                icon: ShieldCheck,
-            },
-        ],
-    },
+    
 ]
 
 export function AppSidebar({ ...props }) {
