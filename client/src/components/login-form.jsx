@@ -43,7 +43,8 @@ export function LoginForm({
             toast.success('Identity Verified');
         } catch (err) {
             console.error('Login error:', err.response?.data || err.message);
-            toast.error(err.response?.data?.msg || 'Authentication Rejection');
+            const errorMsg = err.response?.data?.errors?.[0]?.msg || err.response?.data?.msg || (err.response ? 'Authentication Rejection' : 'Server Unreachable - Check Connection');
+            toast.error(errorMsg);
             setLoading(false);
         }
     };

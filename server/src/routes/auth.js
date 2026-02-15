@@ -9,7 +9,13 @@ const { User, Transaction } = require('../models');
 // @desc     Register user
 // @access   Public
 router.post('/register', async (req, res) => {
-    const { name, email, password, referralCode } = req.body;
+    let { name, email, password, referralCode } = req.body;
+
+    if (!email || !password) {
+        return res.status(400).json({ msg: 'Please enter all fields' });
+    }
+
+    email = email.toLowerCase().trim();
 
     try {
         // Check if referral code is missing
@@ -91,20 +97,32 @@ router.post('/register', async (req, res) => {
 // @desc     Authenticate user & get token
 // @access   Public
 router.post('/login', async (req, res) => {
-    const { email, password } = req.body;
+    let { email, password } = req.body;
+
+    if (!email || !password) {
+        return res.status(400).json({ errors: [{ msg: 'Please enter all fields' }] });
+    }
+
+    email = email.toLowerCase().trim();
 
     try {
+        console.log(`Login attempt for email: ${email}`);
         let user = await User.findOne({ where: { email } });
 
         if (!user) {
+            console.log(`User not found: ${email}`);
             return res.status(400).json({ errors: [{ msg: 'Invalid Credentials' }] });
         }
 
+        console.log(`User found, comparing passwords...`);
         const isMatch = await bcrypt.compare(password, user.password);
 
         if (!isMatch) {
+            console.log(`Password mismatch for user: ${email}`);
             return res.status(400).json({ errors: [{ msg: 'Invalid Credentials' }] });
         }
+
+        console.log(`Login successful for user: ${email}`);
 
         const payload = {
             user: {
@@ -117,16 +135,33 @@ router.post('/login', async (req, res) => {
             process.env.JWT_SECRET,
             { expiresIn: '5d' },
             (err, token) => {
-                if (err) throw err;
-                const userData = user.toJSON();
-                delete userData.password;
-                res.json({
-                    token,
-                    user: {
-                        ...userData,
-                        remainingCap: (parseFloat(userData.totalInvested) * 3) - parseFloat(userData.totalEarned)
-                    }
-                });
+                if (err) {
+                    console.error('JWT Signing Error:', err);
+                    return res.status(500).send('Server error');
+                }
+
+                try {
+                    const userData = user.toJSON();
+                    console.log('User Data for login response:', JSON.stringify(userData, null, 2));
+                    delete userData.password;
+
+                    const invested = parseFloat(userData.totalInvested || 0);
+                    const earned = parseFloat(userData.totalEarned || 0);
+                    const remainingCap = (invested * 3) - earned;
+
+                    console.log(`Calculated remainingCap: ${remainingCap} (Invested: ${invested}, Earned: ${earned})`);
+
+                    res.json({
+                        token,
+                        user: {
+                            ...userData,
+                            remainingCap: remainingCap > 0 ? remainingCap : 0
+                        }
+                    });
+                } catch (jsonErr) {
+                    console.error('Error constructing login response:', jsonErr);
+                    res.status(500).send('Server error');
+                }
             }
         );
     } catch (err) {
