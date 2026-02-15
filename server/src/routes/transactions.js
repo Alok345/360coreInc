@@ -4,9 +4,6 @@ const { User, Transaction, sequelize } = require('../models');
 const auth = require('../middleware/auth');
 const { Op } = require('sequelize');
 
-// @route    POST api/transactions/deposit
-// @desc     Make a deposit
-// @access   Private
 router.post('/deposit', auth, async (req, res) => {
     const { amount } = req.body;
     const depositAmount = parseFloat(amount);
@@ -86,14 +83,10 @@ router.post('/deposit', auth, async (req, res) => {
         res.json({ msg: 'Deposit successful' });
     } catch (err) {
         await t.rollback();
-        console.error(err.message);
         res.status(500).send('Server Error');
     }
 });
 
-// @route    GET api/transactions
-// @desc     Get own transactions (last 10)
-// @access   Private
 router.get('/', auth, async (req, res) => {
     try {
         const transactions = await Transaction.findAll({
@@ -103,7 +96,6 @@ router.get('/', auth, async (req, res) => {
         });
         res.json(transactions);
     } catch (err) {
-        console.error(err.message);
         res.status(500).send('Server Error');
     }
 });

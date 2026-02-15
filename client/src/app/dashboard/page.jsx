@@ -146,9 +146,7 @@ export default function Dashboard() {
                 </header>
 
                 <div className="p-6 sm:p-10 animate-fade-in space-y-10 max-w-[1600px] mx-auto w-full">
-                    {/* Hero Stats */}
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                        {/* Total Invested */}
                         <div className="s-card p-6 flex flex-col justify-between group">
                             <div className="flex justify-between items-start">
                                 <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Active Capital</span>
@@ -164,7 +162,6 @@ export default function Dashboard() {
                             </div>
                         </div>
 
-                        {/* Total Earned */}
                         <div className="s-card p-6 flex flex-col justify-between group">
                             <div className="flex justify-between items-start">
                                 <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Total Revenue</span>
@@ -180,7 +177,6 @@ export default function Dashboard() {
                             </div>
                         </div>
 
-                        {/* Daily Profit */}
                         <div className="s-card p-6 flex flex-col justify-between group">
                             <div className="flex justify-between items-start">
                                 <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Expected Daily</span>
@@ -194,7 +190,6 @@ export default function Dashboard() {
                             </div>
                         </div>
 
-                        {/* Remaining Cap */}
                         <div className="s-card p-6 flex flex-col justify-between group">
                             <div className="flex justify-between items-start">
                                 <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Unrealized Cap</span>
@@ -209,7 +204,6 @@ export default function Dashboard() {
                         </div>
                     </div>
 
-                    {/* Content Grid */}
                     <div className="grid grid-cols-1 xl:grid-cols-3 gap-8">
                         <div className="xl:col-span-2 space-y-6">
                             <div id="ledger" className="s-card bg-white transition-all hover:border-slate-300">
@@ -273,7 +267,6 @@ export default function Dashboard() {
                         </div>
 
                         <div className="space-y-8">
-                            {/* Referral Sidebar Block */}
                             <div id="referral" className="s-card bg-slate-900 p-8 text-white relative overflow-hidden shadow-2xl">
                                 <div className="absolute top-[-20%] right-[-20%] w-32 h-32 bg-blue-500/20 rounded-full blur-3xl"></div>
                                 <h3 className="text-xl font-black tracking-tight mb-2">Referral Rewards</h3>
@@ -290,7 +283,6 @@ export default function Dashboard() {
                                 </div>
                             </div>
 
-                            {/* Trust Section */}
                             <div className="s-card p-6 bg-white space-y-6">
                                 <h4 className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Security Protocol</h4>
                                 <div className="space-y-4">

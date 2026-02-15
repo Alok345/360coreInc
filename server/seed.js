@@ -8,7 +8,6 @@ async function seed() {
     try {
         await sequelize.sync();
 
-        // Check if seed user already exists
         const existing = await User.findOne({ where: { email: 'admin@gmail.com' } });
         if (existing) {
             console.log('Seed user already exists with referral code:', existing.referralCode);

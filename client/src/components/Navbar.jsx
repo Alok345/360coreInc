@@ -23,7 +23,6 @@ const Navbar = () => {
             }`}>
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex justify-between items-center h-16">
-                    {/* Logo */}
                     <Link href="/" className="flex items-center gap-2 group">
                         <div className="bg-slate-900 w-8 h-8 rounded-lg flex items-center justify-center text-white">
                             <Sparkles className="w-5 h-5" />
@@ -31,7 +30,6 @@ const Navbar = () => {
                         <span className="text-lg font-bold tracking-tight text-slate-900 group-hover:text-blue-600 transition-colors">360 Core</span>
                     </Link>
 
-                    {/* Desktop Navigation */}
                     <div className="hidden md:flex items-center gap-6">
                         {!isAuthenticated ? (
                             <>
@@ -69,7 +67,6 @@ const Navbar = () => {
                         )}
                     </div>
 
-                    {/* Mobile Menu Button */}
                     <button
                         onClick={() => setIsOpen(!isOpen)}
                         className="md:hidden p-2 rounded-lg text-slate-600 hover:bg-slate-100 transition-all"
@@ -78,7 +75,6 @@ const Navbar = () => {
                     </button>
                 </div>
 
-                {/* Mobile Menu */}
                 {isOpen && (
                     <div className="md:hidden py-4 animate-slide-up bg-white border-t border-slate-100">
                         <div className="space-y-1">

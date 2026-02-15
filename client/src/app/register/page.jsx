@@ -28,7 +28,6 @@ export default function Register() {
             login(res.data.token, res.data.user);
             toast.success('Account Activated');
         } catch (err) {
-            console.error('Registration error:', err.response?.data || err.message);
             toast.error(err.response?.data?.msg || 'Registration Rejected');
             setLoading(false);
         }
@@ -37,7 +36,6 @@ export default function Register() {
     return (
         <div className="min-h-screen pt-20 pb-20 px-4 flex items-center justify-center bg-[#FDFCFB]">
             <div className="w-full max-w-lg animate-fade-in">
-                {/* Brand Header */}
                 <div className="text-center mb-10">
                     <div className="mb-6 mx-auto w-12 h-12 bg-slate-900 rounded-2xl flex items-center justify-center text-white shadow-lg rotate-3 overflow-hidden">
                         <UserPlus className="w-6 h-6" />
@@ -46,10 +44,8 @@ export default function Register() {
                     <p className="text-slate-500 font-medium mt-2">Join the next generation of digital investing.</p>
                 </div>
 
-                {/* Registration Form Card */}
                 <div className="s-card bg-white p-6 sm:p-10">
                     <form className="space-y-6" onSubmit={onSubmit}>
-                        {/* Name Field */}
                         <div className="s-input-group">
                             <label className="s-label">
                                 <User className="s-label-icon" />
@@ -65,7 +61,6 @@ export default function Register() {
                             />
                         </div>
 
-                        {/* Email Field */}
                         <div className="s-input-group">
                             <label className="s-label">
                                 <Mail className="s-label-icon" />
@@ -81,7 +76,6 @@ export default function Register() {
                             />
                         </div>
 
-                        {/* Two Column Section */}
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                             <div className="s-input-group">
                                 <label className="s-label">
@@ -142,7 +136,6 @@ export default function Register() {
                     </div>
                 </div>
 
-                {/* Footer Security Badge */}
                 <div className="mt-8 flex items-center justify-center gap-6 opacity-30">
                     <div className="flex items-center gap-2">
                         <ShieldCheck className="w-4 h-4" />

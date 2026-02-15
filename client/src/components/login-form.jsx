@@ -42,7 +42,6 @@ export function LoginForm({
             login(res.data.token, res.data.user);
             toast.success('Identity Verified');
         } catch (err) {
-            console.error('Login error:', err.response?.data || err.message);
             const errorMsg = err.response?.data?.errors?.[0]?.msg || err.response?.data?.msg || (err.response ? 'Authentication Rejection' : 'Server Unreachable - Check Connection');
             toast.error(errorMsg);
             setLoading(false);

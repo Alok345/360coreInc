@@ -5,11 +5,9 @@ require('dotenv').config();
 
 const app = express();
 
-// Init Middleware
 app.use(express.json());
 app.use(cors());
 
-// Define Routes
 app.use('/api/auth', require('./src/routes/auth'));
 app.use('/api/transactions', require('./src/routes/transactions'));
 app.use('/api/admin', require('./src/routes/admin'));
@@ -19,10 +17,9 @@ const PORT = process.env.PORT || 5000;
 app.listen(PORT, async () => {
     console.log(`Server started on port ${PORT}`);
     try {
-        await sequelize.sync({ alter: true }); // Sync database schema, update if needed
+        await sequelize.sync({ alter: true });
         console.log('Database synced');
 
-        // Check if we need to seed an initial user (User A)
         const { User } = require('./src/models');
         const count = await User.count();
         if (count === 0) {
