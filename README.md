@@ -94,16 +94,14 @@ npm run dev
 
 ---
 
-##  Scaling to 100,000 Users
-To transition from a proof-of-concept to a production-grade 100k+ user system:
+## Scaling Strategy (100k Users)
+To scale this system to support 100,000+ users, the following infrastructure upgrades are recommended:
 
-1. **Background Job Processing**: The `run-daily-returns` logic would be offloaded to **BullMQ** or **RabbitMQ**. Workers would process users in parallel batches (e.g., 500 users per worker) to avoid event-loop blocking and timeouts.
-2. **Database Performance**:
-   - **Read Replicas**: Direct all dashboard and ledge read queries to MySQL replicas.
-   - **Indexing**: Composite indexes on `(userId, type, createdAt)` for rapid transaction retrieval.
-3. **Caching Strategy**: Implement **Redis** to cache user's "Remaining Cap" and "Total Invested" values, invalidating only on new transactions. This reduces DB load by ~70% as users frequently refresh dashboards.
-4. **API Gateway & Load Balancing**: Use **NGINX** or **AWS ALB** to distribute traffic across multiple instances of the Express server.
-5. **State Consistency**: Implement distributed locking (Redlock) to ensure the daily return protocol cannot be triggered simultaneously by different admin task instances.
+*   **Asynchronous Processing**: Offload the daily return logic to background workers using **BullMQ** or **RabbitMQ**. This ensures the main API remains responsive while processing large batches of users.
+*   **Database Scaling**: Implement **Read Replicas** to offload read-heavy dashboard queries from the primary database. Add composite indexes on transaction tables to maintain performance as data grows.
+*   **Caching Layer**: Use **Redis** to cache high-frequency data such as user balances and earning cap statuses. This significantly reduces the database query load.
+*   **Horizontal Scaling**: Deploy the application across multiple server instances behind a **Load Balancer** (e.g., Nginx or AWS ALB) to handle increased concurrent traffic.
+*   **Distributed Locking**: Use a distributed lock (like Redlock) to prevent race conditions and ensure scheduled tasks are only executed once across the cluster.
 
 ---
 
