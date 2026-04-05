@@ -17,7 +17,8 @@ app.use('/api/auth', require('./src/routes/auth'));
 app.use('/api/transactions', require('./src/routes/transactions'));
 app.use('/api/admin', require('./src/routes/admin'));
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5500;
+
 
 app.listen(PORT, async () => {
     console.log(`Server started on port ${PORT}`);
